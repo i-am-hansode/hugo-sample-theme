@@ -1,0 +1,10 @@
+{{ range .Site.RegularPages }}
+<div>
+  <a href="{{ .Permalink }}">{{ .Title }}</a>
+</div>
+{{ end }}
+
+<hr>
+{{ with .Site.GetPage "/test1.md" }}
+<a href="{{ .Permalink }}">{{ .Title }}</a>
+{{ end }}
