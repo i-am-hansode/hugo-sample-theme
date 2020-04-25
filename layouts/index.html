@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ $style := resources.Get "/css/style.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
-  <title>{{ .Site.Title }}</title>
+  {{ partial "head/head" . }}
 </head>
 <body>
-  <header class="header">{{- .Site.Title -}}</header>
+  <header class="header">
+    {{- partial "header/header" . -}}
+  </header>
   <main class="main">
     <article class="article">
       {{ range first 5 (.Site.RegularPages) }}
@@ -18,20 +16,11 @@
       {{ end }}
     </article>
     <aside class="aside">
-      <div>
-        <div>カテゴリー</div>
-        <div>ココにカテゴリー一覧を表示します。</div>
-      </div>
-      <div>
-        <div>アーカイブ</div>
-        <div>ココにアーカイブ一覧を表示します。</div>
-      </div>
-      <div>
-        <div>タグ</div>
-        <div>ココにタグ一覧を表示します。</div>
-      </div>
+      {{- partial "aside/aside" . -}}
     </aside>
   </main>
-  <footer class="footer">footer</footer>
+  <footer class="footer">
+    {{- partial "footer/footer" . -}}
+  </footer>
 </body>
 </html>
