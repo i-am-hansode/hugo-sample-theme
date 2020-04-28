@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  {{ partial "head/head" . }}
-</head>
-<body>
-  <header class="header">
-    {{- partial "header/header" . -}}
-  </header>
-  <main class="main">
-    <article class="article">
-      {{ range first 5 (.Site.RegularPages) }}
-        <div>
-          <a href="{{ .Permalink }}">{{- .Title -}}</a>
-        </div>
-      {{ end }}
-    </article>
-    <aside class="aside">
-      {{- partial "aside/aside" . -}}
-    </aside>
-  </main>
-  <footer class="footer">
-    {{- partial "footer/footer" . -}}
-  </footer>
-</body>
-</html>
+{{ define "main" }}
+{{ range first 5 (.Site.RegularPages) }}
+<div>
+  <a href="{{ .Permalink }}">{{- .Title -}}</a>
+</div>
+{{ end }}
+{{ end }}
