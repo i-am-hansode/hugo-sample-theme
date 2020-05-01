@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <h1>{{ .Title }} アーカイブ</h1>
+  {{ range .RegularPages }}
+  <div>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </div>
+  {{ end }}
+{{ end }}

@@ -4,9 +4,21 @@
 </div>
 <div>
   <div>アーカイブ</div>
-  <div>ココにアーカイブ一覧を表示します。</div>
+  <div>
+    {{ range .Site.Taxonomies.archives.Alphabetical.Reverse }}
+      <div>
+        <a href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+      </div>
+    {{ end }}
+  </div>
 </div>
 <div>
   <div>タグ</div>
-  <div>ココにタグ一覧を表示します。</div>
+  <div>
+    {{ range .Site.Taxonomies.tags }}
+      <div>
+        <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+      </div>
+    {{ end }}
+  </div>
 </div>
