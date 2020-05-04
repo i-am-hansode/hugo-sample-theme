@@ -1,0 +1,9 @@
+{{ $scratch := newScratch }}
+{{ $scratch.Add "articles" .RegularPages }}
+{{ with .Sections }}
+  {{ range . }}
+    {{ $partial := partial "aside/child-articles" . }}
+    {{ $scratch.Add "articles" ($partial.Get "articles") }}
+  {{ end }}
+{{ end }}
+{{ return $scratch }}

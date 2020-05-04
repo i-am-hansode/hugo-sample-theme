@@ -1,0 +1,21 @@
+{{ with .Site.GetPage "/section1" }}
+{{ $topSection := partial "aside/child-articles" . }}
+<ul>
+  <li><a href="{{ .Permalink }}">{{ .Title }} ({{ len ($topSection.Get "articles") }})</a>
+    {{ template "categories" . }}
+  </li>
+</ul>
+{{ end }}
+
+{{ define "categories" }}
+  {{ with .Sections }}
+  <ul>
+    {{ range . }}
+    {{ $partial := partial "aside/child-articles" . }}
+    <li><a href="{{ .Permalink }}">{{ .Title }} ({{ len ($partial.Get "articles") }})</a>
+    {{ template "categories" . }}
+  </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+{{ end }}

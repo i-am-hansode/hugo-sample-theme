@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div>
+  <h1>{{ .Title }} Category</h1>
+  {{- $partial := partial "aside/child-articles" . -}}
+  {{- $pages := ($partial.Get "articles").ByDate.Reverse -}}
+  {{ range $pages }}
+  <div>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
