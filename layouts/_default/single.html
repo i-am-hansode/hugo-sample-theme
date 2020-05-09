@@ -1,3 +1,19 @@
 {{ define "main" }}
-{{ .Content }}
+<div>
+  <div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Date.Format "2006-01-02" }}
+      <div>{{ . }}</div>
+    {{ end }}
+    {{ with .Params.tags }}
+      {{ range . }}
+        <a href="/tags/{{ . }}">{{ lower . }}</a>
+      {{ end }}
+    {{ end }}
+  </div>
+  <hr>
+  <div>
+    {{ .Content }}
+  </div>
+</div>
 {{ end }}
