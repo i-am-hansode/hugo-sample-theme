@@ -15,5 +15,17 @@
   <div>
     {{ .Content }}
   </div>
+  <div>
+    {{ with .Site.RegularPages.Prev . }}
+      <div>
+        <p>前の記事</p><a href="{{ .Permalink }}">{{ .Title }}</a>
+      </div>
+    {{ end }}
+    {{ with .Site.RegularPages.Next . }}
+      <div>
+        <p>次の記事</p><a href="{{ .Permalink }}">{{ .Title }}</a>
+      </div>
+    {{ end }}
+  </div>
 </div>
 {{ end }}
