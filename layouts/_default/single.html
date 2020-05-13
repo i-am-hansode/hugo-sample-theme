@@ -27,10 +27,10 @@
       </div>
     {{ end }}
   </div>
-  {{ $related := first 5 (.Site.RegularPages.Related .) }}
+  {{ $related := .Site.RegularPages.Related . }}
   {{ with $related }}
     <h2>関連記事</h2>
-    {{ range shuffle . }}
+    {{ range first 5 (shuffle .) }}
       <div>
         <a href="{{ .Permalink }}">{{ .Title }}</a>
       </div>
