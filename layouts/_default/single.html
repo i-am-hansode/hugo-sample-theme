@@ -1,6 +1,10 @@
 {{ define "main" }}
 <div>
   <div>
+    {{ partial "article/breadcrumbnav" . }}
+  </div>
+  <hr>
+  <div>
     <h1>{{ .Title }}</h1>
     {{ with .Date.Format "2006-01-02" }}
       <div>{{ . }}</div>
